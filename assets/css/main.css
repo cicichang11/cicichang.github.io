@@ -3313,6 +3313,13 @@ input, select, textarea {
 		min-height: 100vh;
 	}
 
+		#intro img {
+		    max-width: 100%;
+		    height: auto;
+		    border-radius: 50%; /* Makes the image round */
+		    border: 5px solid white; /* Optional: adds a white border around the image */
+		    margin-bottom: 2rem; /* Adds space below the image */
+		}
 		#intro input, #intro select, #intro textarea {
 			color: #ffffff;
 		}

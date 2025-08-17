@@ -1,293 +1,478 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Cici Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cici Chang - Software Engineer & Data Scientist</title>
+    <link rel="stylesheet" href="assets/css/modern-portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Cici Chang</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-		<!-- Wrapper -->x
-			<div id="wrapper" class="fade-in">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Cici Chang</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Software Engineer | Data Engineer | Product-Focused Technologist
+                </p>
+                <p class="hero-description">
+                    Passionate about building scalable systems at the intersection of software engineering, data science, and product development. I architect end-to-end solutions—from distributed systems and ML pipelines to user-facing applications—that transform complex data into actionable business insights and exceptional user experiences.
+                </p>
+                <div class="hero-education">
+                    <p><strong>USC M.S. Computer Science - Applied Data Science</strong> (May 2024)</p>
+                    <p><strong>USC B.S. Industrial & Systems Engineering, Minor in Mobile App Development</strong> (May 2023)</p>
+                </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/profile_headshot.jpg" alt="Cici Chang" class="profile-img">
+            </div>
+        </div>
+    </section>
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Cici Chang<br />
-						Portfolio</h1>
-						<p>Hi, I'm Cici – a passionate software engineer with expertise in building sophisticated systems at the intersection of software development, data science, and machine learning. I excel at architecting efficient code solutions and developing robust applications that transform complex data into actionable business insights. </p>
-						<p>USC Master's of Computer Science - Applied Data Science (May 2024) | USC B.S. in Industrial and Systems Engineering (May 2023)</p>
-						<p>email: <a href="mailto:ccguam0411@gmail.com">ccguam0411@gmail.com</a>, <a href="mailto:cicichan@usc.edu">cicichan@usc.edu</a></p>
-						<p><a href="https://www.linkedin.com/in/cici-chang/">Linkedin Profile</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Bio</a>
-					</header>
+            <!-- Project Categories -->
+            <div class="project-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="all">All Projects</button>
+                    <button class="tab-btn" data-category="software">Software Engineering</button>
+                    <button class="tab-btn" data-category="ml">Machine Learning</button>
+                    <button class="tab-btn" data-category="mobile">Mobile Development</button>
+                    <button class="tab-btn" data-category="web">Web Development</button>
+                    <button class="tab-btn" data-category="product">Product</button>
+                </div>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Software Engineering</a></li>
-							<li><a href="elements.html">Data Science & Machine Learning</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/cici-chang-985545194/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/cicichang11" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+                <div class="projects-grid">
+                    <!-- Software Engineering Projects -->
+                    <div class="project-card" data-category="software">
+                        <div class="project-image">
+                            <img src="images/distributed-storage.png" alt="Distributed Storage System">
+                        </div>
+                        <div class="project-content">
+                            <h4>Distributed Storage System</h4>
+                            <p>A production-ready distributed storage system built with Raft consensus algorithm, featuring Spring Boot API, React frontend, and comprehensive monitoring stack.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Spring Boot</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Raft Algorithm</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/distributed-storage-system" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://github.com/cicichang11/distributed-storage-system#readme" class="project-link">
+                                    <i class="fas fa-book"></i> Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Main -->
-					<div id="main">
+                    <div class="project-card" data-category="software">
+                        <div class="project-image">
+                            <img src="images/distributed.png" alt="MarketSphere Platform">
+                        </div>
+                        <div class="project-content">
+                            <h4>MarketSphere Platform</h4>
+                            <p>Dynamic web-based marketplace platform with robust distributed database management system.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Distributed DB</span>
+                                <span class="tech-tag">Web Platform</span>
+                                <span class="tech-tag">E-commerce</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/MarketSphere-Platform-Distributed-DB" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://youtu.be/YlNtGW0Ckpw" class="project-link">
+                                    <i class="fas fa-play"></i> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-								        <header>
-								            <h2><a href="https://github.com/cicichang11/distributed-storage-system">Distributed Storage System</a></h2>
-								        </header>
-								        <a class="image fit"><img src="images/distributed-storage.png" alt="" /></a>
-								        <p>A production-ready distributed storage system built with Raft consensus algorithm, featuring Spring Boot API, React frontend, and comprehensive monitoring stack.</p>
-								        <ul class="actions special">
-								            <li><a href="https://github.com/cicichang11/distributed-storage-system" class="button">Github Repository</a></li>
-								            <li><a href="https://github.com/cicichang11/distributed-storage-system#readme" class="button">Documentation</a></li>
-								        </ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/cicichang11/TripMaker-Web-App">Trip Maker Web App</a></h2>
-									</header>
-									<a class="image fit"><img src="images/tripmaker.png" alt="" /></a>
-									<p>TripMaker is a collaborative group travel planning platform that helps friends and family coordinate trips together.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/TripMaker-Web-App" class="button">Github Repository</a></li>
-										<li><a href="https://v0-group-travel-planning.vercel.app/" class="button">Live Application</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://movie-recommender-system-cici-9b72d5b559c2.herokuapp.com">MarketSphere-Platform<br />
-										Distributed Database</a></h2>
-									</header>
-									<a class="image fit"><img src="images/distributed.png" alt="Distributed DB" /></a>
-									<p>MarketSphere is a dynamic web-based marketplace platform designed to connect sellers and buyers. 
-									   It offers a robust distributed database management system for products, orders, and user roles, facilitating an efficient and streamlined online trading environment.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/MarketSphere-Platform-Distributed-DB" class="button">Github Repository</a></li>
-										<li><a href="https://youtu.be/YlNtGW0Ckpw" class="button">Demo Video</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://youtu.be/UM75QpOM9hQ">FreshFridge<br />
-											iOS Mobile APP</a></h2>
-									</header>
-									<a class="image fit"><img src="images/app.png" alt="" /></a>
-									<p>FreshFridge is a mobile app supported by Xcode that helps users to record and track what they have in their fridge to keep an eye on what is about to expire and avoid purchasing redundancies.
-									</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/FreshFridge-iOS-App" class="button">Github Repository</a></li>
-										<li><a href="https://youtu.be/UM75QpOM9hQ" class="button">Demo Video</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://movie-recommender-system-cici-9b72d5b559c2.herokuapp.com">Movies Recommendation System<br />
-										Web App</a></h2>
-									</header>
-									<a class="image fit"><img src="images/movie_recommender.png" alt="movie_recommender" /></a>
-									<p>This project implements a movie recommender system using Streamlit and content-based filtering. Users can enter a movie title and receive recommendations for similar movies.
-	                                                                   It was deployed to Heroku.</p>
-									<ul class="actions special">
-										<li><a href="https://movie-recommender-system-cici-9b72d5b559c2.herokuapp.com" class="button">Web App</a></li>
-										<li><a href="https://github.com/cicichang11/Movie-Recommender-System-Web-App" class="button">Github Repository</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/cicichang11/Martian-Frost-Detection-Using-CNN-and-Transfer-Learning-in-HiRISE-Images">Real Time Pose Analysis<br />
-											and Tracking Application</a></h2>
-									</header>
-									<a class="image fit"><img src="images/pose_detection.png" alt="" /></a>
-									<p>Developed "Swoleboi," a sophisticated real-time exercise pose analysis and tracking application, utilizing Python and an array of libraries including Tkinter for the GUI, OpenCV for video capture and image processing, and MediaPipe for advanced pose estimation.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/Real-Time-Exercise-Pose-Analysis-and-Tracking-Application/tree/main" class="button">Github Repository</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/cicichang11/Flashcards-iOS-APP">Flashcards iOS App</a></h2>
-									</header>
-									<a class="image fit"><img src="images/Question.png" alt="" /></a>
-									<p>The Flashcards app is an iOS mobile application that allows users to create, organize, study, and manage flashcards to aid in studying. 
-										The app has been upgraded to incorporate multiple views, data persistence, and additional UI features.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/Flashcards-iOS-APP" class="button">Github Repository</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/cicichang11/Tip-Calculator-iOS-App">Tip Calculator iOS App</a></h2>
-									</header>
-									<a class="image fit"><img src="images/scenario2.png" alt="" /></a>
-									<p>Tip Split is a basic tip calculator iPhone app written in Swift. The app allows users to enter a bill amount, select a tip percentage, specify if tax should be included, 
-										and divide the total tip amount evenly among a chosen number of people.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/Tip-Calculator-iOS-App" class="button">Github Repository</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/cicichang11/Maison-Margiela-Thrift-Store-web-app">Maison Margiela Thrift Store Web App</a></h2>
-									</header>
-									<a class="image fit"><img src="images/demo_default.png" alt="" /></a>
-									<p>The Maison Margiela Thrift Store web app allows web administrator to post secondhand Maison Margiela items for sale and view a gallery of available items. Administrator can add, 
-										arrange, and delete product items from an inventory list.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/Maison-Margiela-Thrift-Store-web-app" class="button">Github Repository</a></li>
-										<li><a href="https://cicichang11.github.io/Maison-Margiela-Thrift-Store-web-app/dom_manipulation.html" class="button">Website</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/cicichang11/WiseChoice-Electronics-Website">WiseChoice Electronics Website</a></h2>
-									</header>
-									<a class="image fit"><img src="images/final_project.png" alt="" /></a>
-									<p>This is an electronics e-commerce website built for the company WiseChoice Electronics. It allows users to view and search products, and admins to manage the product catalog.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/WiseChoice-Electronics-Website" class="button">Github Repository</a></li>
-										<li><a href="https://cicichang11.github.io/WiseChoice-Electronics-Website/project_description.html" class="button">Website</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://cicichang11.github.io/Story-of-Christopher-Nolan/homepage.html">Website: Story of Christopher Nolan</a></h2>
-									</header>
-									<a class="image fit"><img src="images/web_nolan.png" alt="" /></a>
-									<p>A HTML and CSS supported webpage for Christopher Nolan's bio, movies, and reviews.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/Story-of-Christopher-Nolan.git" class="button">Github Repository</a></li>
-										<li><a href="https://cicichang11.github.io/Story-of-Christopher-Nolan/homepage.html" class="button">Website</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://cicichang11.github.io/Fun-Landscape-Puzzle/puzzle.html">Website: Fun Landscape<br />
-										Puzzle</a></h2>
-									</header>
-									<a class="image fit"><img src="images/puzzle.png" alt="" /></a>
-									<p>A puzzle game webpage upported by HTML, Javascript, and CSS.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/cicichang11/Fun-Landscape-Puzzle.git" class="button">Github Repository</a></li>
-										<li><a href="https://cicichang11.github.io/Fun-Landscape-Puzzle/puzzle.html" class="button">Website</a></li>
-									</ul>
-								</article>
-								
-								<!-- <article>
-									<header>
-										<h2><a href="#">Odio magna<br />
-										sed consectetur</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Augue lorem<br />
-										primis vestibulum</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article> -->
-							</section>
+                    <!-- Machine Learning Projects -->
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <img src="images/COVID19.png" alt="Dynamic Vaccine Allocation Research">
+                        </div>
+                        <div class="project-content">
+                            <h4>Dynamic Vaccine Allocation for Control of Human-Transmissible Disease</h4>
+                            <p>Developed a dynamic methodology for vaccine allocation, segmented by region, age, and timeframe, using a time-sensitive, age-structured compartmental model for COVID-19 vaccine allocation optimization in the United States.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Research</span>
+                                <span class="tech-tag">Optimization</span>
+                                <span class="tech-tag">Published Paper</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.mdpi.com/2076-393X/12/9/1034" class="project-link">
+                                    <i class="fas fa-file-alt"></i> Published Paper
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-						<!-- Footer -->
-							<!-- <footer>
-								<div class="pagination"> -->
-									<!--<a href="#" class="previous">Prev</a>-->
-									<!-- <a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a> -->
-								<!--</div>
-							</footer> -->
-							<footer>
-								<strong>Contact Information</strong>
-							</footer>
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <img src="images/pose_detection.png" alt="Real Time Pose Analysis">
+                        </div>
+                        <div class="project-content">
+                            <h4>Real Time Pose Analysis</h4>
+                            <p>"Swoleboi" - sophisticated real-time exercise pose analysis using OpenCV and MediaPipe.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">MediaPipe</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/Real-Time-Exercise-Pose-Analysis-and-Tracking-Application" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-					</div>
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <img src="images/frost.jpg" alt="Martian Frost Detection">
+                        </div>
+                        <div class="project-content">
+                            <h4>Martian Frost Detection</h4>
+                            <p>CNN and transfer learning models to identify frost in Martian terrain images using HiRISE dataset.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CNN</span>
+                                <span class="tech-tag">Transfer Learning</span>
+                                <span class="tech-tag">Computer Vision</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/Martian-Frost-Detection-Using-CNN-and-Transfer-Learning-in-HiRISE-Images" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section>
-								<h3>Email</h3>
-								<p>
-									<a href="mailto:cicichan@usc.edu">cicichan@usc.edu</a><br>
-									<a href="mailto:ccguam0411@gmail.com">ccguam0411@gmail.com</a>
-								</p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/cici-chang-985545194/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/cicichang11" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <img src="images/breast_cancer.jpg" alt="Breast Cancer ML Methods">
+                        </div>
+                        <div class="project-content">
+                            <h4>Breast Cancer ML Methods</h4>
+                            <p>Comparison of supervised, semi-supervised, unsupervised, and active learning techniques.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Classification</span>
+                                <span class="tech-tag">Monte-Carlo</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/Breast_Cancer_ML_Methods" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Cici Chang</li></ul>
-					</div>
+                    <div class="project-card" data-category="ml">
+                        <div class="project-image">
+                            <img src="images/movie_recommender.png" alt="Movie Recommender System">
+                        </div>
+                        <div class="project-content">
+                            <h4>Movie Recommender System</h4>
+                            <p>Content-based movie recommendation system using Streamlit and deployed on Heroku.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Streamlit</span>
+                                <span class="tech-tag">Heroku</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://movie-recommender-system-cici-9b72d5b559c2.herokuapp.com" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Live App
+                                </a>
+                                <a href="https://github.com/cicichang11/Movie-Recommender-System-Web-App" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-			</div>
+                    <!-- Mobile Development Projects -->
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-image">
+                            <img src="images/app.png" alt="FreshFridge iOS App">
+                        </div>
+                        <div class="project-content">
+                            <h4>FreshFridge iOS App</h4>
+                            <p>Mobile app to track fridge contents, monitor expiration dates, and avoid redundant purchases.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">iOS</span>
+                                <span class="tech-tag">Swift</span>
+                                <span class="tech-tag">Xcode</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/FreshFridge-iOS-App" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://youtu.be/UM75QpOM9hQ" class="project-link">
+                                    <i class="fas fa-play"></i> Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+                    <div class="project-card" data-category="mobile">
+                        <div class="project-image">
+                            <img src="images/Question.png" alt="Flashcards iOS App">
+                        </div>
+                        <div class="project-content">
+                            <h4>Flashcards iOS App</h4>
+                            <p>iOS mobile application for creating, organizing, and studying flashcards with data persistence.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">iOS</span>
+                                <span class="tech-tag">Swift</span>
+                                <span class="tech-tag">Data Persistence</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/Flashcards-iOS-APP" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-	</body>
+
+
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="images/final_project.png" alt="WiseChoice Electronics">
+                        </div>
+                        <div class="project-content">
+                            <h4>WiseChoice Electronics</h4>
+                            <p>E-commerce website for electronics company with product catalog and admin management.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">E-commerce</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/cicichang11/WiseChoice-Electronics-Website" class="project-link">
+                                    <i class="fab fa-github"></i> Code
+                                </a>
+                                <a href="https://cicichang11.github.io/WiseChoice-Electronics-Website/project_description.html" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Website
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Projects -->
+                    <div class="project-card" data-category="product">
+                        <div class="project-image">
+                            <img src="images/sustainG.png" alt="SustainG Platform">
+                        </div>
+                        <div class="project-content">
+                            <h4>SustainG</h4>
+                            <p>I co-founded SustainG, a B2C platform with open-source API that aims to build a sustainable college community, simplifies energy-saving process, and further empowers smart device ecosystem on college campus.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Product Management</span>
+                                <span class="tech-tag">UI/UX Design</span>
+                                <span class="tech-tag">B2C Platform</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://docs.google.com/presentation/d/1in4dlpHuyZzBx1kYD0C06VIRzKbtY04N/edit" class="project-link">
+                                    <i class="fas fa-presentation"></i> Pitch Deck
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Go</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">MediaPipe</span>
+                        <span class="skill-tag">CNN</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-mobile-alt"></i> Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">iOS Development</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Agile</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-lightbulb"></i> Product & Strategy</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Product Roadmapping</span>
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Feature Prioritization</span>
+                        <span class="skill-tag">Market Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p>
+                        Hi, I'm <strong>Cici Chang</strong> (legal name: <strong>Chang Chang</strong>), a software engineer and data scientist who thrives at the intersection of technology and product innovation. My background spans the full stack—from architecting distributed systems and building ML pipelines to developing user-facing applications and managing technical product roadmaps.
+                    </p>
+                    <p>
+                        With experience at Energy Solutions, Wanb Express, Amgen, Bain & Company, JD.COM, and Chinasoft International, I've delivered solutions that process terabytes of data, handle 500+ concurrent requests, and drive measurable business impact. I'm passionate about translating complex technical capabilities into products that solve real-world problems.
+                    </p>
+                    <div class="about-achievements">
+                        <h4>Key Achievements</h4>
+                        <ul>
+                            <li><strong>Published Research in MDPI Vaccines</strong></li>
+                            <li><strong>USC Discovery Scholar & NAE Grand Challenge Scholar</strong></li>
+                            <li><strong>Provost Research Fellowship Recipient & Entrepreneurship Award Winner</strong></li>
+                        </ul>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:ccguam0411@gmail.com">ccguam0411@gmail.com</a></p>
+                            <p><a href="mailto:cicichan@usc.edu">cicichan@usc.edu</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/cici-chang-985545194/" target="_blank">Connect with me</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/cicichang11" target="_blank">View my projects</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cici Chang. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/modern-portfolio.js"></script>
+</body>
 </html>

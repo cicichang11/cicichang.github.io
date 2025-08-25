@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Teams: Technical Product Management Case Study</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4c51bf, #667eea);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #4c51bf;
+            display: inline-block;
+        }
+
+        .section h3 {
+            font-size: 1.4rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .section h4 {
+            font-size: 1.2rem;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        .problem-statement {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid #e53e3e;
+            margin-bottom: 2rem;
+        }
+
+        .constraints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .constraint-item {
+            background: #fff5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #feb2b2;
+        }
+
+        .constraint-item .label {
+            font-weight: 600;
+            color: #c53030;
+            margin-bottom: 0.5rem;
+        }
+
+        .backlog-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .backlog-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .backlog-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .backlog-item h4 {
+            color: #4c51bf;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .backlog-item .description {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        .technical-details {
+            background: #f0fff4;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid #38a169;
+        }
+
+        .technical-details .tech-label {
+            font-weight: 600;
+            color: #2f855a;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .technical-details ul {
+            margin-left: 1rem;
+            font-size: 0.9rem;
+            color: #2d3748;
+        }
+
+        .complexity-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .complexity-low {
+            background: #c6f6d5;
+            color: #2f855a;
+        }
+
+        .complexity-medium {
+            background: #fef5e7;
+            color: #d69e2e;
+        }
+
+        .complexity-high {
+            background: #fed7d7;
+            color: #e53e3e;
+        }
+
+        .rice-framework {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .rice-framework h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .rice-criteria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .criteria-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .criteria-item strong {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .criteria-formula {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin-top: 0.8rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .rice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .rice-table th {
+            background: #4c51bf;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .rice-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .rice-table tr:hover {
+            background: #f7fafc;
+        }
+
+        .winner {
+            background: linear-gradient(135deg, #48bb78, #38a169) !important;
+            color: white;
+        }
+
+        .winner td {
+            color: white;
+            font-weight: 600;
+        }
+
+        .detailed-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .analysis-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .analysis-card h4 {
+            color: #4c51bf;
+            margin-bottom: 1rem;
+        }
+
+        .metrics-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .metrics-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .leading {
+            border-left: 5px solid #38a169;
+        }
+
+        .lagging {
+            border-left: 5px solid #e53e3e;
+        }
+
+        .metrics-card .metric-item {
+            background: white;
+            padding: 1rem;
+            margin: 0.8rem 0;
+            border-radius: 8px;
+            border-left: 3px solid #4c51bf;
+        }
+
+        .metric-item .metric-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-item .metric-target {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-style: italic;
+        }
+
+        .ab-test-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .ab-test-section h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .test-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .test-detail {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .test-detail h4 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .technical-implementation {
+            background: #f0f4f8;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 5px solid #2b6cb0;
+        }
+
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .risk-item {
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .risk-low {
+            background: #f0fff4;
+            border-color: #9ae6b4;
+        }
+
+        .risk-medium {
+            background: #fffbf0;
+            border-color: #f6e05e;
+        }
+
+        .risk-high {
+            background: #fff5f5;
+            border-color: #fc8181;
+        }
+
+        .risk-item .risk-level {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-low .risk-level {
+            color: #2f855a;
+        }
+
+        .risk-medium .risk-level {
+            color: #d69e2e;
+        }
+
+        .risk-high .risk-level {
+            color: #e53e3e;
+        }
+
+        .highlight {
+            background: #fef5e7;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid #f6ad55;
+            margin: 2rem 0;
+        }
+
+        .score {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .stakeholder-section {
+            background: #edf2f7;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stakeholder-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .stakeholder-item.primary {
+            border-color: #4c51bf;
+        }
+
+        .stakeholder-item.secondary {
+            border-color: #ed8936;
+        }
+
+        .timeline-section {
+            background: linear-gradient(135deg, #38b2ac, #319795);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .phase-number {
+            background: rgba(255, 255, 255, 0.3);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                border-radius: 12px;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem 1rem;
+            }
+            
+            .metrics-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .backlog-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Microsoft Teams</h1>
+            <div class="subtitle">Technical Product Management Case Study</div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2>Executive Summary & Context</h2>
+                <div class="problem-statement">
+                    <p>The Microsoft Teams product team faces a critical resource allocation challenge in Q2 2024. With 320 million MAU and growing enterprise adoption, we must strategically prioritize our engineering efforts to maximize user impact while maintaining system stability and technical excellence.</p>
+                </div>
+
+                <h3>Business Context</h3>
+                <div class="constraints-grid">
+                    <div class="constraint-item">
+                        <div class="label">Sprint Capacity</div>
+                        <p>6 weeks available (48 person-days)</p>
+                    </div>
+                    <div class="constraint-item">
+                        <div class="label">Engineering Team</div>
+                        <p>8 developers (4 frontend, 3 backend, 1 mobile)</p>
+                    </div>
+                    <div class="constraint-item">
+                        <div class="label">Platform Scope</div>
+                        <p>Desktop (Windows/Mac), Mobile (iOS/Android), Web</p>
+                    </div>
+                    <div class="constraint-item">
+                        <div class="label">User Base</div>
+                        <p>320M MAU, 75% enterprise, 25% consumer</p>
+                    </div>
+                </div>
+
+                <div class="stakeholder-section">
+                    <h3>Key Stakeholders</h3>
+                    <div class="stakeholder-grid">
+                        <div class="stakeholder-item primary">
+                            <strong>Engineering Leadership</strong>
+                            <p>Technical feasibility & resource allocation</p>
+                        </div>
+                        <div class="stakeholder-item primary">
+                            <strong>Design Team</strong>
+                            <p>UX consistency & user research</p>
+                        </div>
+                        <div class="stakeholder-item secondary">
+                            <strong>Sales/Marketing</strong>
+                            <p>Competitive positioning</p>
+                        </div>
+                        <div class="stakeholder-item secondary">
+                            <strong>Data Science</strong>
+                            <p>Analytics & measurement</p>
+                        </div>
+                        <div class="stakeholder-item secondary">
+                            <strong>Security/Compliance</strong>
+                            <p>Enterprise requirements</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Technical Backlog Analysis</h2>
+
+                <div class="backlog-items">
+                    <div class="backlog-item">
+                        <div class="complexity-badge complexity-high">High Complexity</div>
+                        <h4>AI-Powered Meeting Recaps</h4>
+                        <div class="description">Automated feature leveraging Azure Cognitive Services to generate intelligent summaries of meeting transcripts with action item extraction and participant attribution.</div>
+                        
+                        <div class="technical-details">
+                            <div class="tech-label">Technical Requirements:</div>
+                            <ul>
+                                <li>Integration with Azure OpenAI Service (GPT-4)</li>
+                                <li>Real-time transcript processing pipeline</li>
+                                <li>Natural language processing for action item detection</li>
+                                <li>Multi-language support (initial: EN, ES, FR, DE)</li>
+                                <li>GDPR/SOC2 compliant data handling</li>
+                                <li>99.9% availability SLA requirement</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>Architecture Considerations</h4>
+                        <ul>
+                            <li><strong>Microservice:</strong> New meeting-intelligence service</li>
+                            <li><strong>Storage:</strong> Encrypted blob storage for transcripts</li>
+                            <li><strong>API:</strong> GraphQL endpoint for summary retrieval</li>
+                            <li><strong>Caching:</strong> Redis for processed summaries</li>
+                        </ul>
+                    </div>
+
+                    <div class="backlog-item">
+                        <div class="complexity-badge complexity-low">Low Complexity</div>
+                        <h4>Expanded Emojis & GIFs</h4>
+                        <div class="description">Content update to include Unicode 15.0 emojis (🫨🫷🫸) and trending GIFs from Tenor API integration, addressing user feedback on limited expression options.</div>
+                        
+                        <div class="technical-details">
+                            <div class="tech-label">Technical Implementation:</div>
+                            <ul>
+                                <li>Update emoji font packages (Segoe UI Emoji, Apple Color Emoji)</li>
+                                <li>Extend Tenor API integration with new categories</li>
+                                <li>Add 127 new Unicode 15.0 characters</li>
+                                <li>Update emoji picker React components</li>
+                                <li>Accessibility improvements (screen reader support)</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>Performance Impact</h4>
+                        <ul>
+                            <li><strong>Bundle Size:</strong> +2.3MB font assets</li>
+                            <li><strong>Load Time:</strong> <5ms impact (lazy loading)</li>
+                            <li><strong>Memory:</strong> +8MB RAM per client</li>
+                        </ul>
+                    </div>
+
+                    <div class="backlog-item">
+                        <div class="complexity-badge complexity-medium">Medium Complexity</div>
+                        <h4>Cross-Platform File Sync Fix</h4>
+                        <div class="description">Critical bug resolution for SharePoint synchronization failures affecting 12% of mobile users, causing data inconsistency and user frustration.</div>
+                        
+                        <div class="technical-details">
+                            <div class="tech-label">Root Cause Analysis:</div>
+                            <ul>
+                                <li>Race condition in sync conflict resolution</li>
+                                <li>Mobile app offline queue corruption</li>
+                                <li>SharePoint API rate limiting on bulk operations</li>
+                                <li>Delta sync token expiration handling</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>Proposed Solution</h4>
+                        <ul>
+                            <li><strong>Sync Engine:</strong> Implement exponential backoff</li>
+                            <li><strong>Conflict Resolution:</strong> Last-write-wins with metadata</li>
+                            <li><strong>Queue Management:</strong> SQLite WAL mode for mobile</li>
+                            <li><strong>Monitoring:</strong> Enhanced telemetry for sync health</li>
+                        </ul>
+                    </div>
+
+                    <div class="backlog-item">
+                        <div class="complexity-badge complexity-medium">Medium Complexity</div>
+                        <h4>"Quick Polls" in Channels</h4>
+                        <div class="description">Interactive polling feature for channels enabling real-time decision making and engagement, following competitive analysis of Slack and Discord implementations.</div>
+                        
+                        <div class="technical-details">
+                            <div class="tech-label">Feature Specifications:</div>
+                            <ul>
+                                <li>Multiple choice polls (2-10 options)</li>
+                                <li>Anonymous vs. attributed voting modes</li>
+                                <li>Real-time result updates via SignalR</li>
+                                <li>Poll expiration and auto-close functionality</li>
+                                <li>Mobile parity across iOS/Android</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>Data Architecture</h4>
+                        <ul>
+                            <li><strong>Schema:</strong> New Poll entity with Vote relationships</li>
+                            <li><strong>Real-time:</strong> SignalR hubs for live updates</li>
+                            <li><strong>Permissions:</strong> Channel-based access control</li>
+                            <li><strong>Analytics:</strong> Engagement tracking events</li>
+                        </ul>
+                    </div>
+
+                    <div class="backlog-item">
+                        <div class="complexity-badge complexity-medium">Medium Complexity</div>
+                        <h4>Enhanced 'Do Not Disturb' Mode</h4>
+                        <div class="description">Advanced notification management system with granular controls, addressing enterprise user feedback on notification overload during focus time.</div>
+                        
+                        <div class="technical-details">
+                            <div class="tech-label">Advanced Features:</div>
+                            <ul>
+                                <li>Role-based notification filtering (reports, managers)</li>
+                                <li>Time-zone aware scheduling engine</li>
+                                <li>Meeting calendar integration</li>
+                                <li>Priority keyword detection</li>
+                                <li>Urgent override mechanisms</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>Technical Implementation</h4>
+                        <ul>
+                            <li><strong>Service:</strong> Notification routing microservice</li>
+                            <li><strong>Rules Engine:</strong> Redis-based rule evaluation</li>
+                            <li><strong>Calendar API:</strong> Graph API integration</li>
+                            <li><strong>Push Service:</strong> Azure Notification Hubs</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Technical RICE Framework Analysis</h2>
+                <div class="rice-framework">
+                    <h3>Quantitative Prioritization Methodology</h3>
+                    <p>The RICE framework provides objective scoring by quantifying business impact against engineering effort. Each component is weighted based on data-driven estimates from user research, analytics, and technical architecture reviews.</p>
+                    
+                    <div class="rice-criteria">
+                        <div class="criteria-item">
+                            <strong>Reach</strong>
+                            <p>Monthly Active Users impacted within 30 days of release</p>
+                            <div class="criteria-formula">Formula: MAU × Adoption Rate</div>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>Impact</strong>
+                            <p>Expected improvement in North Star metrics (engagement, satisfaction)</p>
+                            <div class="criteria-formula">Scale: 5=Massive, 3=High, 2=Medium, 1=Low</div>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>Confidence</strong>
+                            <p>Statistical confidence in estimates based on research quality</p>
+                            <div class="criteria-formula">Sources: A/B tests, user interviews, analytics</div>
+                        </div>
+                        <div class="criteria-item">
+                            <strong>Effort</strong>
+                            <p>Total engineering person-weeks including testing, deployment, monitoring</p>
+                            <div class="criteria-formula">Includes: Dev + QA + DevOps + Buffer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Detailed RICE Scorecard</h3>
+                <table class="rice-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Reach<br/>(M users)</th>
+                            <th>Impact<br/>(1-5)</th>
+                            <th>Confidence<br/>(%)</th>
+                            <th>Effort<br/>(weeks)</th>
+                            <th>RICE Score</th>
+                            <th>Risk Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="winner">
+                            <td><strong>Expanded Emojis & GIFs</strong></td>
+                            <td>250M</td>
+                            <td>1</td>
+                            <td>95%</td>
+                            <td>1</td>
+                            <td class="score">237.5</td>
+                            <td>Low</td>
+                        </tr>
+                        <tr>
+                            <td>Quick Polls in Channels</td>
+                            <td>120M</td>
+                            <td>3</td>
+                            <td>90%</td>
+                            <td>4</td>
+                            <td class="score">81.0</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>AI-Powered Meeting Recaps</td>
+                            <td>100M</td>
+                            <td>5</td>
+                            <td>80%</td>
+                            <td>6</td>
+                            <td class="score">66.7</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Platform File Sync Fix</td>
+                            <td>50M</td>
+                            <td>4</td>
+                            <td>100%</td>
+                            <td>3</td>
+                            <td class="score">66.7</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td>Enhanced DND Mode</td>
+                            <td>80M</td>
+                            <td>2</td>
+                            <td>70%</td>
+                            <td>2</td>
+                            <td class="score">56.0</td>
+                            <td>Low</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="detailed-analysis">
+                    <div class="analysis-card">
+                        <h4>Data Sources for Reach Estimates</h4>
+                        <ul>
+                            <li><strong>Telemetry:</strong> Daily active emoji usage (87% of users)</li>
+                            <li><strong>A/B Tests:</strong> Previous content updates showed 95% adoption</li>
+                            <li><strong>User Research:</strong> 15 interviews, 2,500 survey responses</li>
+                            <li><strong>Competitive Analysis:</strong> Slack emoji usage patterns</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="analysis-card">
+                        <h4>Impact Methodology</h4>
+                        <ul>
+                            <li><strong>Engagement:</strong> Expected 2-3% increase in message volume</li>
+                            <li><strong>Satisfaction:</strong> 0.1 point CSAT improvement</li>
+                            <li><strong>Retention:</strong
